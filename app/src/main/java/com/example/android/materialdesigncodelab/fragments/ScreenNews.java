@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,7 +31,7 @@ import retrofit2.Response;
 /**
  * Created by gad on 12.09.2015.
  */
-public class ScreenNews extends android.app.Fragment {
+public class ScreenNews extends Fragment {
     public ScreenNews() {
     }
 

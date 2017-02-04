@@ -28,4 +28,17 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+
+    <string name="fb_url">facebook.com/</string>
+    <string name="vk_url">vk.com/</string>
+    <string name="tw_url">twitter.com/</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_surname">Фамилия</string>
+    <string name="hint_phone">+0 000 000-00-00</string>
+    <string name="hint_email">example@mail.ru</string>
+    <string name="hint_user">user</string>
+    <string name="settKurs">Курс</string>
+    <string name="settGroup">Группа</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>

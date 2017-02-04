@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity  {
 
         // Initialize the first fragment when the application first loads.
         if (savedInstanceState == null) {
-            selectItem(2); // фрагмент, который будет отображаться при запуске приожения (сейчас новости)
+            selectItem(1); // фрагмент, который будет отображаться при запуске приожения (сейчас новости)
         }
 
         Log.d("Tag", "line");
@@ -202,12 +202,12 @@ public class MainActivity extends AppCompatActivity  {
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
         // Update the main content by replacing fragments
-        android.app.Fragment fragment = null;
+        Fragment fragment = null;
         switch (position) {
-            case 1:
+           case 1:
                 fragment = new ScreenTimetable();
                 break;
-            case 2:
+           case 2:
                 fragment = new ScreenNews();
                 break;
 
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity  {
 
         // Insert the fragment by replacing any existing fragment
         if (fragment != null) {
-            android.app.FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, fragment).commit();
 
