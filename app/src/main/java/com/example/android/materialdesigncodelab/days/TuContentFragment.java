@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.materialdesigncodelab;
+package com.example.android.materialdesigncodelab.days;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,10 +22,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.materialdesigncodelab.R;
+
 /**
  * Provides UI for the view with Cards.
  */
-public class TileContentFragment extends Fragment {
+public class TuContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

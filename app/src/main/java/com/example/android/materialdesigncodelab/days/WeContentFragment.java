@@ -14,22 +14,46 @@
  * limitations under the License.
  */
 
-package com.example.android.materialdesigncodelab;
+package com.example.android.materialdesigncodelab.days;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.android.materialdesigncodelab.R;
 
 /**
  * Provides UI for the view with Cards.
  */
-public class CardContentFragment extends Fragment {
+public class WeContentFragment extends Fragment {
+    private int Kurs, Group;
+    private TextView WhatIsKurs;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.item_card, null);
+
+        View rootView = inflater.inflate(R.layout.item_card, container,
+                false);
+
+
+
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+
+
+
+
+        super.onViewCreated(view, savedInstanceState);
     }
 }
 
