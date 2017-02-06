@@ -32,6 +32,10 @@ import retrofit2.Response;
  * Created by gad on 12.09.2015.
  */
 public class ScreenNews extends Fragment {
+   static List<DatumNews> result;
+    RecyclerView recyclerView;
+    ContentAdapter adapter;
+
     public ScreenNews() {
     }
 
@@ -39,10 +43,10 @@ public class ScreenNews extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(
+        recyclerView = (RecyclerView) inflater.inflate(
                 R.layout.recycler_view, container, false);
-        ContentAdapter adapter = new ContentAdapter(recyclerView.getContext());
-        recyclerView.setAdapter(adapter);
+         adapter = new ContentAdapter(recyclerView.getContext());
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -55,22 +59,18 @@ public class ScreenNews extends Fragment {
             @Override
             public void onResponse(Call<List<DatumNews>> call, Response<List<DatumNews>> response) {
 
-                    List<DatumNews> result = response.body();
-                    Log.d("rESPONSE", result.get(2).getDate());
-
+                    result = response.body();
+                 //   Log.d("rESPONSE", result.get(2).getDate());
+                recyclerView.setAdapter(adapter);
 
             }
-
             @Override
             public void onFailure(Call<List<DatumNews>> call, Throwable t) {
                 Log.d("rESPONSE", "Fail");
 
             }
 
-
         });
-
-
 
         return recyclerView;
     }
@@ -125,9 +125,9 @@ public class ScreenNews extends Fragment {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.avator.setImageDrawable(mPlaceAvators[position % mPlaceAvators.length]);
-            holder.name.setText(mPlaces[position % mPlaces.length]);
-            holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+            holder.avator.setImageDrawable(mPlaceAvators[1]);
+            holder.name.setText(result.get(position).getDate());
+            holder.description.setText(result.get(position).getBody());
         }
 
         @Override
