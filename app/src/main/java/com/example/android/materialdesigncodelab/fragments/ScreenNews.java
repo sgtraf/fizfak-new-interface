@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.materialdesigncodelab.DatumNews;
 import com.example.android.materialdesigncodelab.DetailActivity;
@@ -32,7 +33,7 @@ import retrofit2.Response;
  * Created by gad on 12.09.2015.
  */
 public class ScreenNews extends Fragment {
-   static List<DatumNews> result;
+   static List<DatumNews> result;  //это потом исправить , просто передать через переменную внутрь класса
     RecyclerView recyclerView;
     ContentAdapter adapter;
 
@@ -66,7 +67,9 @@ public class ScreenNews extends Fragment {
             }
             @Override
             public void onFailure(Call<List<DatumNews>> call, Throwable t) {
-                Log.d("rESPONSE", "Fail");
+               // Log.d("rESPONSE", "Fail");
+                Toast.makeText(getActivity(), "Проблемы со связью", Toast.LENGTH_SHORT).show();
+
 
             }
 
