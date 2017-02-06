@@ -49,25 +49,21 @@ public class ScreenNews extends Fragment {
 //ассинхронный вызов retrofit
 
         NewsInterface service = NewsInterface.client.create(NewsInterface.class);
-        Call<List<DatumNews>> call = service.getUser("getnews.php");
+        Call<List<DatumNews>> call = service.getUser();
 
         call.enqueue(new Callback<List<DatumNews>>() {
             @Override
             public void onResponse(Call<List<DatumNews>> call, Response<List<DatumNews>> response) {
-                if (response.isSuccessful()) {
-                    // request successful (status code 200, 201)
-                    List<DatumNews> result = response.body();
-                    Log.d("rESPONSE", result.toString());
 
-                } else {
-                    //request not successful (like 400,401,403 etc)
-                    //Handle errors
-                    Log.d("rESPONSE", "Fail");
-                }
+                    List<DatumNews> result = response.body();
+                    Log.d("rESPONSE", result.get(2).getDate());
+
+
             }
 
             @Override
             public void onFailure(Call<List<DatumNews>> call, Throwable t) {
+                Log.d("rESPONSE", "Fail");
 
             }
 

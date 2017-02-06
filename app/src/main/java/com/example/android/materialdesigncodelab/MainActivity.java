@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity  {
                         final String Tag = "gadz";
                         if (id == R.id.time) {
                             // Handle the camera action
-                            Toast.makeText(getApplicationContext(), "Вы выбрали расписание", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(getApplicationContext(), "Вы выбрали расписание", Toast.LENGTH_SHORT).show();
                             selectItem(1);
                         } else if (id == R.id.news) {
                             selectItem(2);

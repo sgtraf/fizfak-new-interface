@@ -20,17 +20,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import com.example.android.materialdesigncodelab.R;
 
 /**
  * Provides UI for the view with Cards.
  */
-public class WeContentFragment extends Fragment {
+public class WeContentFragment    extends Fragment {
     private int Kurs, Group;
     private TextView WhatIsKurs;
 
@@ -42,6 +47,24 @@ public class WeContentFragment extends Fragment {
                 false);
 
 
+        SharedPreferences sPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
+
+        Kurs =  (int)sPref.getLong("enterKursText", 1);
+        Group  =  (int)sPref.getLong("enterGroupText", 1);
+
+
+     /*   String Tag = "Test kurs";
+        Log.d(Tag, Integer.toString(Kurs));
+        Log.d(Tag, Integer.toString(Group));
+        Log.d(Tag, "http://vitoelexir.ru/android/timetable/"+Kurs+"/"+Group+"/"
+                + "3" + ".png");*/
+
+
+//для вывода изображений используем библиотеку Picasso
+        Picasso.with(getActivity()) //передаем контекст приложения
+                .load( "http://vitoelexir.ru/android/timetable/"+Kurs+"/"+Group+"/"
+                        + "3" + ".png") //адрес изображения
+                .into((ImageView) rootView.findViewById(R.id.imageView1)); //ссылка на ImageView
 
         return rootView;
     }

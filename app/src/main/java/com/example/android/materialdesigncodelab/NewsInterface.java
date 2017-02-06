@@ -13,8 +13,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface NewsInterface {
-    @GET("android/{name}")
-    Call<List<DatumNews>> getUser(@Path("name") String username);
+    @GET("android/news/")
+    Call<List<DatumNews>> getUser();
 
     // Another endpoints...
 
