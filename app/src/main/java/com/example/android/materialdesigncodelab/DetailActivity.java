@@ -31,6 +31,10 @@ import android.widget.TextView;
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "position";
+    public static final String EXTRA_DATE = "date";
+    public static final String EXTRA_TITLE = "title" ;
+    public static final String EXTRA_BODY = "body";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,17 +49,26 @@ public class DetailActivity extends AppCompatActivity {
         // collapsingToolbar.setTitle(getString(R.string.item_title));
 
         int postion = getIntent().getIntExtra(EXTRA_POSITION, 0);
+        String date = getIntent().getStringExtra(EXTRA_DATE);
+        String title = getIntent().getStringExtra(EXTRA_TITLE);
+        String body = getIntent().getStringExtra(EXTRA_BODY);
+
+
+
         Resources resources = getResources();
-        String[] places = resources.getStringArray(R.array.places);
-        collapsingToolbar.setTitle(places[postion % places.length]);
+       // String[] places = resources.getStringArray(R.array.places);
+        collapsingToolbar.setTitle(title);
 
-        String[] placeDetails = resources.getStringArray(R.array.place_details);
+        TextView placeTitle = (TextView) findViewById(R.id.place_title);
+        placeTitle.setText(title);
+
+        //String[] placeDetails = resources.getStringArray(R.array.place_details);
         TextView placeDetail = (TextView) findViewById(R.id.place_detail);
-        placeDetail.setText(placeDetails[postion % placeDetails.length]);
+        placeDetail.setText(body);
 
-        String[] placeLocations = resources.getStringArray(R.array.place_locations);
+       // String[] placeLocations = resources.getStringArray(R.array.place_locations);
         TextView placeLocation =  (TextView) findViewById(R.id.place_location);
-        placeLocation.setText(placeLocations[postion % placeLocations.length]);
+        placeLocation.setText(date);
 
         TypedArray placePictures = resources.obtainTypedArray(R.array.places_picture);
         ImageView placePicutre = (ImageView) findViewById(R.id.image);

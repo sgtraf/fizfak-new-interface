@@ -93,6 +93,11 @@ public class ScreenNews extends Fragment {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, DetailActivity.class);
                     intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+
+                    intent.putExtra(DetailActivity.EXTRA_DATE, result.get(getAdapterPosition()).getDate());
+                    intent.putExtra(DetailActivity.EXTRA_TITLE, result.get(getAdapterPosition()).getTitle());
+                    intent.putExtra(DetailActivity.EXTRA_BODY, result.get(getAdapterPosition()).getBody());
+
                     context.startActivity(intent);
                 }
             });
